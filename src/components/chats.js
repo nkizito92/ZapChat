@@ -1,7 +1,7 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 
 export default class Chats extends Component {
-    render (){
+    render() {
         return (
             <div>
                 Stop
