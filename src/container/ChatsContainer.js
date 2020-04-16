@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import Chats from "../components/Chats"
-// import Chat from "../components/Chat"
+
 import { fetchChats } from "../action/chatActions"
 import ChatsInput from "../components/ChatsInput"
 
@@ -15,7 +15,6 @@ class ChatsContainer extends Component {
             <div>
                 <ChatsInput />
                 <Chats />
-                {/* <Chat /> */}
             </div>
         )
     }
