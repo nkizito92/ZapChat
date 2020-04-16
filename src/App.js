@@ -1,13 +1,11 @@
 import React from 'react'
-import Chats from './components/chats'
-import Chat from './components/chat'
+import ChatsContainer from './container/ChatsContainer'
 export default class App extends React.Component {
 
-    render (){
+    render() {
         return (
-            <div>
-                <Chats />
-                <Chat />
+            <div className="App">
+                <ChatsContainer />
             </div>
         )
     }
