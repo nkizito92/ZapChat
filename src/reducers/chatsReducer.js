@@ -1,21 +1,30 @@
-const chatsReducer = (state = { chats: [], loading: false }, action) => {
+const chatsReducer = (state = { chats: [], loading: false}, action) => {
 
-    switch (action.type) {
+    switch(action.type){
         case "LOADING_CHATS":
             return {
-                ...state,
+                ...state, 
                 chats: [...state.chats],
                 loading: true
             }
 
-        case "ADD_CHATS":
+            case "ADD_CHATS": 
             return {
-                ...state,
-                chats: action.type
+                ...state, 
+                chats: action.chats,
+                img: action.img
             }
 
-        default:
-            return state
+            case "ADD_CHAT":
+                return {
+                    ...state, 
+                    message: action.message,
+                    img: action.img,
+                    guest_id: action.guest_id
+                }
+
+            default:
+                return state
     }
 
 }
