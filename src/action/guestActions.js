@@ -1,7 +1,7 @@
-export const fetchGuest = () => {
+export const fetchGuests = () => {
     return (dispatch) => {
-        fetch("http://localhost:3000/guests")
         dispatch({ type: "LOADING_GUESTS" })
+        fetch("http://localhost:3000/guests")
             .then(res => res.json())
             .then(data => {
                 dispatch({ type: 'ADD_GUESTS', guests: data })
@@ -19,7 +19,7 @@ export const editGuest = guest => {
 
 export const updateGuest = (guest) => {
     return (dispatch) => {
-        fetch("http://localhost:3000/guests", {
+        fetch("http://localhost:3000/guests/:id", {
             method: "PATCH",
             headers: {
                 'Content-Type': 'application/json'
