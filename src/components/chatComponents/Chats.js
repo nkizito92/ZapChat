@@ -1,15 +1,15 @@
 import React, { Component } from 'react'
-import Chat from "../components/Chat"
-import { fetchChats } from "../action/chatActions"
+import Chat from "./Chat"
+import { fetchChats } from "../../action/chatActions"
 import { connect } from 'react-redux'
 class Chats extends Component {
     componentDidMount() {
         this.props.fetchChats()
     }
     render() {
-        const {chats} = this.props   
+        const { chats } = this.props
         // delete will be added later 
-        const listChats = chats.map(chat => <Chat key={chat.id} chat={chat} guest={chat.guest} />)
+        const listChats = chats.map(chat => <Chat key={chat.id} chat={chat} guest={chat.guest} id={chat.id} />)
         return (
             <div>
                 <ul>
@@ -22,8 +22,8 @@ class Chats extends Component {
 
 const mapStateToProps = state => {
     return {
-        chats: state.chats,
-        loading: state.loading
+        chats: state.chatsReducer.chats ,
+        loading: state.chatsReducer.loading
     }
 }
 const mapDispatchToProps = dispatch => {

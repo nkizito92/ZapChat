@@ -10,6 +10,7 @@ export const fetchGuests = () => {
     }
 }
 
+
 export const editGuest = guest => {
     return ({
         type: 'EDIT_GUEST',

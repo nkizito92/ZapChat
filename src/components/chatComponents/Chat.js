@@ -2,14 +2,15 @@
 import React, { Component } from 'react'
 export default class Chat extends Component {
     render() {
-        const {chat} = this.props
+        const { chat } = this.props
         return (
             <div>
                 <ul>
                     <li>
-                        <img src={chat.img} alt="Car" width="100"/> <br />
+                        <h1>{chat.guest.name}</h1>
+                        <img src={chat.img} alt="Car" width="100" /> <br />
                         {chat.message}
-                        
+                        <a href={window.location.href+"/" + chat.id}>view Chat</a>
                     </li>
                 </ul>
             </div>

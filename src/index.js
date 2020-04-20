@@ -1,31 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom'
 import App from './App'
-import Chats from './components/Chats'
-import Guests from './components/guestComponents/Guests'
-import ChatsInput from './components/ChatsInput'
 import { Provider } from 'react-redux';
-import { createStore, applyMiddleware } from 'redux'
-import chatsReducer from './reducers/chatsReducer'
-import guestsReducer from './reducers/guestsReducer'
+import { createStore, applyMiddleware } from 'redux';
+import { BrowserRouter as Router } from 'react-router-dom'
 import thunk from 'redux-thunk'
-import {BrowserRouter as Router, Route} from 'react-router-dom'
-import Navbar from './headers/Navbar'
+import combineReducers from './reducers/index'
 
-const store = createStore(chatsReducer, guestsReducer, applyMiddleware(thunk))
-
+const store = createStore(combineReducers, applyMiddleware(thunk))
 ReactDOM.render(
-    <Provider store={store}>
-    <Router>
-        <nav>
-            <Navbar />
-        </nav>
-            <Route exact path="/" component={App} />
-            <Route exact path="/chats" component={Chats} />
-            <Route exact path="/chats/new" component={ChatsInput} />
-            <Route exact path="/guests" component={Guests} />
-    </Router>
+    <Provider store={store} >
+        <React.StrictMode>
 
+            <Router>
+                <App />
+            </Router>
+        </React.StrictMode>
     </Provider>,
     document.getElementById('root')
 );

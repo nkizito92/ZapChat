@@ -20,7 +20,7 @@ class Guests extends Component {
 const mSTP = state => {
     return {
         guests: state.guestsReducer.guests,
-        loading: state.loading
+        loading: state.guestsReducer.loading
     }
 }
 

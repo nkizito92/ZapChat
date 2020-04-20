@@ -31,7 +31,7 @@ class Guest extends Component {
             <div>
                 <p>{this.props.guest.name}</p>
                 <form onSubmit={e => this.handleOnSubmit(e)}>
-                    <input type="text" name="name" onChange={e => this.handleChange(e)} />
+                    <input type="text" name="name" onChange={e => this.handleChange(e)} value={this.props.guest.name}/>
                     <input type="submit" value="Edit Name" />
                 </form>
             </div>
