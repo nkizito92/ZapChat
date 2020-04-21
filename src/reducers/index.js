@@ -5,6 +5,6 @@ import commentsReducer from './commentsReducer'
 
 export default combineReducers({
     chatsReducer,
-    guestsReducer,
-    commentsReducer
+    commentsReducer,
+    guestsReducer
 })

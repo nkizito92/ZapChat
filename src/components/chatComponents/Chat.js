@@ -9,8 +9,8 @@ export default class Chat extends Component {
                     <li>
                         <h1>{chat.guest.name}</h1>
                         <img src={chat.img} alt="Car" width="100" /> <br />
-                        {chat.message}
-                        <a href={window.location.href+"/" + chat.id}>view Chat</a>
+                        <p>{chat.message}</p>
+                        <a href={window.location.href + "/" + chat.id}>View Chat</a>
                     </li>
                 </ul>
             </div>

@@ -10,12 +10,9 @@ import combineReducers from './reducers/index'
 const store = createStore(combineReducers, applyMiddleware(thunk))
 ReactDOM.render(
     <Provider store={store} >
-        <React.StrictMode>
-
             <Router>
                 <App />
             </Router>
-        </React.StrictMode>
     </Provider>,
     document.getElementById('root')
 );

@@ -1,3 +1,14 @@
+export const fetchComments = () => {
+    return (dispatch) => {
+        dispatch({ type: 'LOADING_COMMENTS' })
+        fetch('http://localhost:3000/comments').then(res => {
+            return res.json()
+        }).then(comment => {
+                dispatch({ type: 'ADD_COMMENTS', comments: comment})
+        })
+    }
+}
+
 export const addComment = comment => {
     return {
         type: "ADD_COMMENT",
@@ -6,8 +17,9 @@ export const addComment = comment => {
 }
 
 export const createComment = comment => {
+    debugger
     return dispatch => {
-        fetch('http://localhost:3000/chats', {
+        fetch('http://localhost:3000/comments', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

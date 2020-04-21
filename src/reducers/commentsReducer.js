@@ -3,7 +3,6 @@ const commentsReducer = (state = { comments: [], loading: false }, action) => {
         case "LOADING_COMMENTS":
             return {
                 ...state,
-                comments: [...state.comments],
                 loading: true
             }
 
@@ -11,6 +10,14 @@ const commentsReducer = (state = { comments: [], loading: false }, action) => {
             return {
                 ...state,
                 comments: action.comments
+                // img: action.img
+            }
+        case "ADD_COMMENT":
+            return {
+                ...state,
+                text: action.text,
+                img: action.img,
+                name: action.name
             }
         default:
             return state
