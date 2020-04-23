@@ -1,35 +1,32 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import { fetchGuests } from '../../action/guestActions'
 import Guest from './Guest'
 class Guests extends Component {
-    componentDidMount() {
-        this.props.fetchGuests()
-    }
-    render() {
+    displayGuest = () => {
         const { guests } = this.props
-        const listOfGuests = guests.map(guest => <Guest key={guest.id} guest={guest} id={guest.id} />)
+        let listOfGuest;
+        if (guests !== undefined) {
+            listOfGuest = guests.map(guest => <Guest key={guest.id} guest={guest} id={guest.id} />)
+        } else {
+            return (
+                <h2 className="chatShow">There are no Guest</h2>
+            )
+        }
         return (
             <div>
-                {listOfGuests}
+                {listOfGuest}
+            </div>
+        )
+    }
+    render() {
+        return (
+            <div className="main" key={this.props.id}>
+                <h1 className="chatShow">Guests</h1>
+                {this.displayGuest()}
             </div>
         )
     }
 }
 
-const mSTP = state => {
-    return {
-        guests: state.guestsReducer.guests,
-        loading: state.guestsReducer.loading
-    }
-}
 
 
-const mDTP = dispatch => {
-    return {
-        fetchGuests: () => dispatch(fetchGuests())
-    }
-}
-
-
-export default connect(mSTP, mDTP)(Guests)
+export default Guests

@@ -2,12 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { createChat } from '../../action/chatActions';
 
-// statefull  and use mapdispatch to props
-//for addChat actions
 class ChatsInput extends Component {
     state = {
-        name:"",
-        // guest_id: "",
+        name: "",
         message: "",
         img: ""
     }
@@ -26,23 +23,26 @@ class ChatsInput extends Component {
             img: this.state.img
         }
         this.props.createChat(chatSet)
-        debugger
+    
         this.setState({
             name: '',
             message: "",
             img: ""
         })
+        let loadingPage =  window.location.href.split(`/new`)[0]
+        setTimeout(()=> window.location.replace(loadingPage), 1000)
     }
 
     render() {
-        
+
         return (
-            <div>
-                <form onSubmit={e => this.handleSubmit(e)}>
-                    <input name="name" onChange={e => this.handleChat(e)} /> <br />
-                    <input name="img" onChange={e => this.handleChat(e)} /> <br />
-                    <textarea name="message" placeholder="Your chat" onChange={e => this.handleChat(e)} />
-                    <input type="submit" onClick={this.handleSubmit} />
+            <div className="main">
+                <form onSubmit={e => this.handleSubmit(e)} className="form">
+                <h1>New Chat:</h1> <br />
+                    <input name="name" onChange={e => this.handleChat(e)} placeholder="Guest Name"  value={this.state.name}/> <br />
+                    <input name="img" onChange={e => this.handleChat(e)} placeholder="Image URL"  value={this.state.img}/> <br />
+                    <textarea name="message" placeholder="Your Chat" onChange={e => this.handleChat(e)}  value={this.state.message}/> <br />
+                    <button className="btn" onClick={this.handleSubmit}>Post Chat</button>
                 </form>
             </div>
         )
