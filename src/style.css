@@ -1,0 +1,142 @@
+* {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+#nav {
+    background-color: purple;
+    padding: 15px 0 ;
+    text-align: center;
+}
+
+#nav a:hover {
+    background-color: red;
+}
+#nav a:active {
+    background-color: navy;
+}
+.App {
+   background-color: #dbdbdb;
+}
+.main {
+    background-color: #ffff;
+    width: 780px;
+    height: 700px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.chat {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.chatShow {
+    text-align: center;
+}
+.chatShow h2, 
+.chatShow h3 {
+    margin: 15px 0;
+}
+.chatShow h1 {
+  padding: 10px 0;
+}
+
+.form {
+    text-align: center;
+}
+.form input,
+.form textarea{
+    width: 80%;
+    border-radius: 5px;
+    padding: 0 5px;
+    margin-bottom: 7px;
+    outline: none;
+}
+
+
+.form textarea {
+    height: 200px;
+}
+.form h1 {
+    text-align: center;
+}
+
+.commentForm {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.commentForm input,
+.commentForm textarea {
+    width: 40%;
+    border-radius: 5px;
+    padding: 0 5px;
+    margin-bottom: 7px;
+    outline: none;
+}
+
+.commentForm textarea {
+    height:100px ;
+}
+
+.comments p{
+    text-align: center;
+    margin: 10px 0;
+}
+
+.guestForm {
+text-align: center;
+}
+.guestForm input{
+width: 40%;
+border-radius: 5px;
+padding: 0 5px;
+margin-bottom: 7px;
+outline: none;
+}
+.btn{
+    color: white;
+    background-color: purple;
+    padding: 8px 17px;
+    width: 40%;
+    border-radius: 7px;
+    border: 2px solid purple;
+    outline: none;
+}
+
+.btn:hover {
+    cursor: pointer;
+    color: purple;
+    border: 2px solid purple;
+    background-color: white;
+}
+
+.btn:active {
+    background-color: navy;
+    border: 2px solid navy;
+    color: white;
+}
+
+.deletebtn{
+    color: white;
+    background-color: red;
+    padding: 8px 17px;
+    width: 40%;
+    border-radius: 7px;
+    border: 2px solid red;
+    outline: none;
+    margin-left: 10px;
+}
+
+.deletebtn:hover {
+    cursor: pointer;
+    color: red;
+    border: 2px solid red;
+    background-color: white;
+}
+
+.deletebtn:active {
+    background-color: navy;
+    border: 2px solid navy;
+    color: white;
+}
