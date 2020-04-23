@@ -36,23 +36,11 @@ export const createChat = (chat) => {
     }
 }
 
-// export const viewChat = chat => {
-//     debugger
-//     return ({
-//         type: 'SHOW_CHAT',
-//         chat: chat
-//     })
-// }
-
-// export const showChat = chat => {
-//     debugger
-//     return dispatch => {
-//         fetch("http://localhost:3000/chats")
-//         .then(res => res.json())
-//         .then(cHat => {
-//             const index = window.location.href.split("").slice(-1)[0]
-//                 debugger
-//                 dispatch(viewChat(cHat[Number.parseInt(index) - 1])) })
-//         .catch(error => console.log(error))
-//     }
-// }
+export const deleteChat = chatId => {
+    return (dispatch) => {
+        dispatch(fetchChats());
+        fetch(`http://localhost:3000/chats/${chatId}`, {
+            method: "DELETE"
+        })
+    }
+}
