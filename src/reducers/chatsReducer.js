@@ -23,14 +23,6 @@ const chatsReducer = (state = { chats: [], loading: false }, action) => {
                 name: action.name
             }
 
-            case "SHOW_CHAT":
-                debugger
-                return {
-                    ...state,
-                    chat: action.chat,
-                    img: action.img
-                }
-
         default:
             return state
     }

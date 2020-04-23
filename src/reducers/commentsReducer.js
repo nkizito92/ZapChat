@@ -10,7 +10,6 @@ const commentsReducer = (state = { comments: [], loading: false }, action) => {
             return {
                 ...state,
                 comments: action.comments
-                // img: action.img
             }
         case "ADD_COMMENT":
             return {
@@ -19,6 +18,14 @@ const commentsReducer = (state = { comments: [], loading: false }, action) => {
                 img: action.img,
                 name: action.name
             }
+
+        case "EDIT_COMMENT":
+            return {
+                ...state,
+                text: action.text,
+                img: action.img
+            }
+
         default:
             return state
     }
