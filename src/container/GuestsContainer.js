@@ -10,15 +10,15 @@ class GuestsContainer extends Component {
     render() {
         return (
             <div>
-                <Guests />
+                <Guests guests={this.props.guests} />
             </div>
         )
     }
 }
 const mapStateToProps = state => {
     return {
-        guests: state.guests,
-        loading: state.loading
+        guests: state.guestsReducer.guests,
+        loading: state.guestsReducer.loading
     }
 }
 

@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import Chats from "../components/chatComponents/Chats"
-
 import { fetchChats } from "../action/chatActions"
 
 class ChatsContainer extends Component {
@@ -12,7 +11,7 @@ class ChatsContainer extends Component {
     render() {
         return (
             <div>
-                <Chats />
+                <Chats chats={this.props.chats}/>
             </div>
         )
     }
@@ -20,8 +19,8 @@ class ChatsContainer extends Component {
 
 const mapStateToProps = state => {
     return {
-        chats: state.chats,
-        loading: state.loading
+        chats: state.chatsReducer.chats,
+        loading: state.chatsReducer.loading
     }
 }
 
