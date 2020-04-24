@@ -29,7 +29,9 @@ export const updateGuest = (guest) => {
         })
 
             .then(res => res.json())
-            .then(guest => dispatch(editGuest(guest)))
+            .then(guest => {
+                dispatch(editGuest(guest))
+            })
             .catch(error => {
                 console.log(error)
             })

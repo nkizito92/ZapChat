@@ -36,9 +36,8 @@ export const createChat = (chat) => {
     }
 }
 
-export const deleteChat = chatId => {
-    return (dispatch) => {
-        dispatch(fetchChats());
+export const deleteChat = (chatId) => {
+    return () => {
         fetch(`http://localhost:3000/chats/${chatId}`, {
             method: "DELETE"
         })

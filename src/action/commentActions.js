@@ -6,6 +6,9 @@ export const fetchComments = () => {
         }).then(comment => {
             dispatch({ type: 'ADD_COMMENTS', comments: comment })
         })
+        .catch(error => {
+            console.log(error)
+        })
     }
 }
 
