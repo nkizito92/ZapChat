@@ -6,8 +6,8 @@ class Home extends Component {
             return (
                 <div key={chat.id}>
                     <h2>{chat.guest.name}</h2>
-                    <img src={chat.img}  alt=""/>
-            <p>{chat.message}</p>
+                    <img src={chat.img} alt="" />
+                    <p>{chat.message}</p>
                 </div>
             )
 
