@@ -14,11 +14,8 @@ const commentsReducer = (state = { comments: [], loading: false }, action) => {
         case "ADD_COMMENT":
             return {
                 ...state,
-                text: action.text,
-                img: action.img,
-                name: action.name
+                comments: [...state.comments, action.comment]
             }
-
         case "EDIT_COMMENT":
             return {
                 ...state,

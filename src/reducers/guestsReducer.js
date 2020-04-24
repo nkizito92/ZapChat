@@ -13,9 +13,11 @@ const guestsReducer = (state = { guests: [], loading: false }, action) => {
             }
 
         case "EDIT_GUEST":
+            const guestId = state.guests.findIndex(guest => guest.id === action.guest.id)
+            // guests: [the guests before action.guest, action.guest, guests after action.guest]
             return {
                 ...state,
-                name: action.name
+                guests: [...state.guests.slice(0, guestId), action.guest, ...state.guests.slice(guestId + 1)]
             }
 
         default:
