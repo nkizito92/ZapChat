@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { updateGuest } from '../../action/guestActions'
+import { updateChat } from '../../action/chatActions'
 
 class Guest extends Component {
     state = {
         id: '',
-        name: ''
+        name: '',
+        error: ""
     }
 
     handleChange = e => {
@@ -17,25 +18,35 @@ class Guest extends Component {
     handleOnSubmit = e => {
         e.preventDefault()
         const editing = {
-            id: this.props.guest.id,
+            id: this.props.id,
             name: this.state.name
         }
-        this.props.updateGuest(editing)
-        this.setState({
-            name: ""
-        })
+        if (!this.state.name) {
+            this.setState({
+                error: "Please fill out the name field"
+            })
+        } else {
+            this.props.updateChat(editing)
+            this.setState({
+                name: "",
+                error: ""
+            })
+        }
     }
 
+
     render() {
+        const { chat } = this.props
         return (
-                <form className="guestForm" onSubmit={e => this.handleOnSubmit(e)}>
-                <p>{this.props.guest.name}</p>
-                    <input type="text" name="name" onChange={e => this.handleChange(e)} value={this.props.guest.name}/> <br />
-                    <input className="btn" type="submit" value="Edit Name" />
-                </form>
+            <form className="guestForm" onSubmit={e => this.handleOnSubmit(e)}>
+                <h4>{chat.guest.name}</h4>
+                <div className="error">{this.state.error}</div>
+                <input id="name" type="text" name="name" onChange={e => this.handleChange(e)} value={this.state.name} /> <br />
+                <input className="btn" type="submit" value="Edit Name" /> <br />
+            </form>
         )
     }
 }
 
 
-export default connect(null, { updateGuest })(Guest)
+export default connect(null, { updateChat })(Guest)
