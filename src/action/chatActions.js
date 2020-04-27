@@ -10,36 +10,84 @@ export const fetchChats = () => {
         fetch('http://localhost:3000/chats').then(res => {
             return res.json()
         }).then(guessChat => {
-                dispatch({ type: 'ADD_CHATS', chats: guessChat})
+            dispatch({ type: 'ADD_CHATS', chats: guessChat })
         })
     }
 
 }
 
+
+export const addGuest = guest => {
+    return {
+        type: 'ADD_GUEST',
+        guest: guest
+    }
+}
+
+
 export const createChat = (chat) => {
     return (dispatch) => {
-        
+
         fetch('http://localhost:3000/chats', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({chat: chat})
-        } 
-        
+            body: JSON.stringify({ chat: chat })
+        }
+
         )
-        .then(res => res.json())
-        .then(chat => dispatch(addChat(chat)))
-        .catch(error => {
-            console.log(error)
+            .then(res => res.json())
+            .then(chat => dispatch(addChat(chat)))
+            .catch(error => {
+                console.log(error)
+            })
+    }
+
+}
+
+
+export const editChat = chat => {
+    return ({
+        type: 'EDIT_CHAT',
+        chat: chat
+    })
+}
+
+export const updateChat = (chat) => {
+    return (dispatch) => {
+        fetch(`http://localhost:3000/chats/${chat.id}`, {
+            method: "PATCH",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ chat: chat })
         })
+
+            .then(res => res.json())
+            .then(chat => {
+                dispatch(editChat(chat))
+            })
+            .catch(error => {
+                console.log(error)
+            })
+    }
+}
+
+
+export const removeChat = (id) => {
+    return {
+        type: "DELETE_CHAT",
+        chat: id
     }
 }
 
 export const deleteChat = (chatId) => {
-    return () => {
+    return (dispatch) => {
         fetch(`http://localhost:3000/chats/${chatId}`, {
             method: "DELETE"
         })
+            .then(res => res.json())
+            .then(chatId => dispatch(removeChat(chatId)))
     }
 }

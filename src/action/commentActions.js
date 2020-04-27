@@ -49,7 +49,7 @@ export const editComment = comment => {
 
 export const updateComment = comment => {
     return dispatch => {
-        fetch('http://localhost:3000/comments/:id', {
+        fetch(`http://localhost:3000/comments/${comment.id}`, {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json'
@@ -66,11 +66,20 @@ export const updateComment = comment => {
     }
 }
 
+export const removeComment = id => {
+    return {
+        type: "DELETE_COMMENT",
+        comment: id 
+    }
+}
+
 export const deleteComment = commentId => {
-    return () => {
+    return (dispatch) => {
         fetch(`http://localhost:3000/comments/${commentId}`, {
             method: 'DELETE'
          })
+         .then(res => res.json())
+         .then(commentId => dispatch(removeComment(commentId)) )
     }
 }
 

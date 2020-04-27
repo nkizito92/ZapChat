@@ -10,6 +10,30 @@ export const fetchGuests = () => {
     }
 }
 
+export const addGuest = guest => {
+    return {
+        type: 'ADD_GUEST',
+        guest: guest
+    }
+}
+
+export const createGuest = guest => {
+    return (dispatch) => {
+        fetch('http://localhost:3000/guests', {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ guest: guest })
+        })
+            .then(res => res.json())
+            .then(newGuest => dispatch(addGuest(newGuest)))
+            .catch(error => {
+                console.log(error)
+            })
+    }
+}
+
 
 export const editGuest = guest => {
     return ({
@@ -20,7 +44,7 @@ export const editGuest = guest => {
 
 export const updateGuest = (guest) => {
     return (dispatch) => {
-        fetch("http://localhost:3000/guests/:id", {
+        fetch(`http://localhost:3000/guests/${guest.id}`, {
             method: "PATCH",
             headers: {
                 'Content-Type': 'application/json'
@@ -37,3 +61,4 @@ export const updateGuest = (guest) => {
             })
     }
 }
+
