@@ -10,13 +10,14 @@ Welcome to ZapChat in here this is where your will be manipulating and view the 
 
 ## BackEnd Source
 Don't forget to `fork` and clone the [Back-End](https://github.com/nkizito92/Back_End-ZapChat). as well  
-When working with a React app you may want to split the backEnd and FrontEnd appart because the files are too big and slow down the FrontEnd.  
-### make sure they are in separate folders.
+When working with a React app you may want to split the backEnd and FrontEnd appart because the files are too big and slow down the FrontEnd. 
+## IMPORTANT NOTE 
+### Make sure BOTH the Front-End and Back-End are in separate folders.
 
 ## Usage
 
 To get started, on your `terminal` run `npm install`. You may need to run `npm install redux && npm install react-redux` along with `npm install redux-thunk`
-After the terminal is done intalling run `npm start` to start the server.
+After the terminal is done installing run `npm start` to start the server.
 Once you have gotten the terminal to display. 
 
 ```js
@@ -36,7 +37,7 @@ To create a production build, use npm run build.
 
 ## Note
 
-Copy the Network link and paste it in your browers
+Copy the Network link and paste it in your browser
 
 ## Awesome you did it!!
 
