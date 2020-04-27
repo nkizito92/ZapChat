@@ -9,8 +9,9 @@ Welcome to ZapChat in here this is where your will be manipulating and view the 
  type `git clone (paste what you have copied)` in your `terminal`.
 
 ## BackEnd Source
-Don't forget to `fork` and clone the [Back-End]https://github.com/nkizito92/Back_End-ZapChat. as well  
-When working with a React app you may want to split the backEnd and FrontEnd appart because the files are too big and slow down the FrontEnd, make sure they are in separate folders.
+Don't forget to `fork` and clone the [Back-End](https://github.com/nkizito92/Back_End-ZapChat). as well  
+When working with a React app you may want to split the backEnd and FrontEnd appart because the files are too big and slow down the FrontEnd.  
+### make sure they are in separate folders.
 
 ## Usage
 
