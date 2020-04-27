@@ -28,9 +28,8 @@ footer {
 }
 .main {
     background-color: #ffff;
-    width: 780px;
+    max-width: 780px;
     min-height: 535px;
-    max-height: auto;
     margin: 0 auto;
     padding: 0 20px;
 }
@@ -54,9 +53,10 @@ footer {
     background-color: #e4ffca;
     color: green;
     padding: 10px 0;
-    animation: fading 2s ease ;
+    animation: fading 2s linear ;
     opacity: 0;
 }
+
 @keyframes fading {
     0%{opacity: 1;}
     80%{opacity: 1;}

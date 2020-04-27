@@ -1,10 +1,14 @@
 import React from 'react'
 import HomesContainer from './container/HomesContainer'
 import ChatsContainer from './container/ChatsContainer'
+import GuestsContainer from './container/GuestsContainer'
 import ChatShow from './components/chatComponents/ChatShow'
 import CommentShow from './components/commentComponents/CommentShow'
-import GuestsContainer from './container/GuestsContainer'
-import ChatsInput from './components/chatComponents/ChatsInput' 
+import ChatsInput from './components/chatComponents/ChatsInput'
+import { fetchChats } from './action/chatActions'
+import { fetchComments } from './action/commentActions'
+import { fetchGuests } from './action/guestActions'
+import { connect } from 'react-redux'
 import { Route, Switch } from 'react-router-dom'
 import Navbar from './headers/Navbar'
 import "./style.css"
@@ -12,32 +16,30 @@ import "./style.css"
 
 class App extends React.Component {
     componentDidMount() {
-        fetch("http://localhost:3000/chats")
-            .then(res => res.json())
-            .then(chats => this.setState({ chats }))
-
-        fetch("http://localhost:3000/comments")
-            .then(res => res.json())
-            .then(comments => this.setState({ comments }))
+            this.props.fetchComments()
+            this.props.fetchChats()
+            this.props.fetchGuests()
     }
 
     state = {
-        chats: []
+        chats: [],
+        guests: []
     }
+    
     render() {
         return (
             <div>
-                <nav id="nav">
+                <nav id="nav"> 
                     <Navbar />
                     <br />
                 </nav>
                 <Switch>
-                    <Route exact path="/" component={HomesContainer} />
-                    <Route exact path="/chats" component={ChatsContainer} />
-                    <Route exact path="/chats/new" render={() => <ChatsInput />} />
-                    <Route exact path="/chats/:id" component={({ match, history }) => <ChatShow chats={this.state.chats} id={match.params.id} history={history} />} />
-                    <Route exact path="/comments/:id" component={({ match }) => <CommentShow comments={this.state.comments} id={match.params.id} />} />
-                    <Route exact path="/guests" component={GuestsContainer} />
+                    <Route exact path="/" component={() => <HomesContainer guests={this.props.guests} chats={this.props.chats}/>} />
+                    <Route exact path="/chats" component={() => <ChatsContainer guests={this.props.guests} chats={this.props.chats}/>} />
+                    <Route exact path="/chats/new" component={({ history }) => <ChatsInput history={history} />} />
+                    <Route exact path="/chats/:id" component={({ match, history }) => <ChatShow chats={this.props.chats} id={Number(parseInt(match.params.id))} history={history} />} />
+                    <Route exact path="/comments/:id" component={({ match, history }) => <CommentShow history={history} comments={this.props.comments} id={match.params.id} />} />
+                    <Route exact path="/guests" component={({history}) => <GuestsContainer history={history} chats={this.props.chats} guests={this.props.guests}/>} />
                 </Switch>
                 <footer>Copy Rights Reserved by Kizito Njoku</footer>
             </div>
@@ -45,5 +47,11 @@ class App extends React.Component {
     }
 
 }
+const mapStateToProps = state => {
+    return {
+        chats: state.chatsReducer.chats,
+        guests: state.guestsReducer.guests
+    }
+}
 
-export default App
+export default connect(mapStateToProps, { fetchChats, fetchComments, fetchGuests })(App)
