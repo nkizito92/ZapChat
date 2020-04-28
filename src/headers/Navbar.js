@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 import { NavLink } from 'react-router-dom';
 
 const link = {
@@ -14,9 +14,9 @@ export default class Navbar extends Component {
             <>
                 <NavLink to="/" exact style={link} activeStyle={{ backgroundColor: "navy" }}>Home</NavLink>
                 <NavLink to="/chats" exact style={link} activeStyle={{ backgroundColor: "navy" }}>Chats</NavLink>
-                <NavLink to="/chats/new" exact style={link} activeStyle={{ backgroundColor: "navy" }}>NewChat</NavLink>
+                <NavLink to="/chats/new" exact style={link} activeStyle={{ backgroundColor: "navy" }}>Create Chat</NavLink>
                 <NavLink to="/guests" exact style={link} activeStyle={{ backgroundColor: "navy" }}>Guests</NavLink>
-           </>
+            </>
         )
     }
 }

@@ -85,7 +85,7 @@ class ChatShow extends Component {
                 <div className="chatShow">
                     <h1>{chat.guest.name}</h1>
                     <div id="updated">{this.state.update}</div><br />
-                    <img src={chat.img} alt="Car" width="300" />
+                    <img src={chat.img} alt="" width="300" />
                     <p>{chat.message}</p> <br />
                     <button onClick={this.handleChatDelete} className="deletebtn">Delete Chat</button>
                     <h2>Comment Section</h2>
