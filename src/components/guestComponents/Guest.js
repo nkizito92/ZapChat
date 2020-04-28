@@ -18,7 +18,7 @@ class Guest extends Component {
     handleOnSubmit = e => {
         e.preventDefault()
         const editing = {
-            id: this.props.id,
+            id: this.props.chat.id,
             name: this.state.name
         }
         if (!this.state.name) {
