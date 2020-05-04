@@ -1,8 +1,6 @@
-import React, { Component } from 'react'
-export default class Comment extends Component {
-    displayComments = () => {
-        const { comment } = this.props
-
+import React from 'react'
+const Comment = ({comment}) => {
+   const displayComments = () => {
         if (!!comment) {
             return (
                 <div className="comments">
@@ -10,15 +8,11 @@ export default class Comment extends Component {
                     <img src={comment.img} width="150" alt="" />
                     <p>{comment.text}</p>
                 </div>
-
             )
         } else {
             return <h1 className="chatShow">Loading Comments...</h1>
         }
-
     }
-    render() {
-        return <div> {this.displayComments()} </div>
-
-    }
+        return displayComments()
 }
+export default Comment
