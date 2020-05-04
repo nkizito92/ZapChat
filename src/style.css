@@ -66,6 +66,10 @@ footer {
     color: red;
     padding: 10px 0;
 }
+
+#likes {
+    color: red;
+}
 .errorField {
     border: 2px solid red;
 }
