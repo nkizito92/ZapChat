@@ -21,11 +21,6 @@ class App extends React.Component {
             this.props.fetchGuests()
     }
 
-    state = {
-        chats: [],
-        guests: []
-    }
-    
     render() {
         return (
             <div>
