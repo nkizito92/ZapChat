@@ -2,9 +2,13 @@
   "name": "zapchat",
   "version": "0.1.0",
   "scripts": {
-    "start": "node App.js",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "eject": "react-scripts eject"
+  },
+  "engines": {
+    "npm": "6.9.0",
+    "node": "12.4.0"
   },
   "private": true,
   "dependencies": {
