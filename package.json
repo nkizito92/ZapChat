@@ -2,16 +2,9 @@
   "name": "zapchat",
   "version": "0.1.0",
   "scripts": {
-    "dev": "react-scripts start",
-    "start": "serve -s build",
+    "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
-    "heroku-postbuild": "npm run build"
-  },
-  "engines": {
-    "npm": "6.9.0",
-    "node": "12.4.0"
+    "eject": "react-scripts eject"
   },
   "private": true,
   "dependencies": {
@@ -21,8 +14,7 @@
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.1",
     "redux": "^4.0.5",
-    "redux-thunk": "^2.3.0",
-    "serve": "^11.3.0"
+    "redux-thunk": "^2.3.0"
   },
   "browserslist": {
     "production": [
