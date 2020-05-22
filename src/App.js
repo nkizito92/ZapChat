@@ -9,7 +9,7 @@ import ChatsInput from './components/chatComponents/ChatsInput'
 import { fetchChats } from './action/chatActions'
 import { fetchComments } from './action/commentActions'
 import { fetchGuests } from './action/guestActions'
-import { fetchUsers} from './action/userActions'
+import { putUserIntoReduxState } from './action/userActions'
 import { connect } from 'react-redux'
 import { Route, Switch } from 'react-router-dom'
 import Navbar from './headers/Navbar'
@@ -21,11 +21,21 @@ class App extends React.Component {
         this.props.fetchComments()
         this.props.fetchChats()
         this.props.fetchGuests()
-        this.props.fetchUsers()
-    }
 
-    displayLogin () {
-       
+        // let token = localStorage.getItem("token");
+        // if (token) {
+        //     debugger
+        //     // Fetch user
+        //     fetch("http://localhost:3000/login", {
+        //         headers: {
+        //             Authorization: `Bearer ${token}`
+        //         }
+        //     })
+        //         .then(res => res.json())
+        //         .then(user => {
+        //             this.props.putUserIntoReduxState(user);
+        //         });
+        // }
     }
 
     render() {
@@ -42,7 +52,7 @@ class App extends React.Component {
                     <Route exact path="/chats/:id" component={({ match, history }) => <ChatShow chats={this.props.chats} id={Number(parseInt(match.params.id))} history={history} />} />
                     <Route exact path="/comments/:id" component={({ match, history }) => <CommentShow history={history} comments={this.props.comments} id={match.params.id} />} />
                     <Route exact path="/guests" component={({ history }) => <GuestsContainer history={history} chats={this.props.chats} guests={this.props.guests} />} />
-                    <Route exact path="/login" component={({ history }) => <Login history={history} />} />
+                    <Route exact path="/login" component={({ history }) => <Login history={history} users={this.props.users} />} />
                 </Switch>
                 <footer>Copy Rights Reserved by Kizito Njoku</footer>
             </div>
@@ -50,11 +60,17 @@ class App extends React.Component {
     }
 
 }
+
+
 const mapStateToProps = state => {
     return {
-        chats: state.chatsReducer.chats,
-        guests: state.guestsReducer.guests
-    }
-}
+      currentUser: state.currentUser
+    };
+  };
+//   const mapDispatchToProps = dispatch => {
+//     return {
+//       putUserIntoReduxState: user => dispatch(putUserIntoReduxState(user))
+//     };
+//   };
 
-export default connect(mapStateToProps, { fetchChats, fetchComments, fetchGuests, fetchUsers })(App)
+export default connect(mapStateToProps, { fetchChats, fetchComments, fetchGuests, putUserIntoReduxState })(App)

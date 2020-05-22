@@ -5,7 +5,7 @@ const Chat = ({ chat }) => {
     const [likes, setLikes] = useState(0)
     return (
         <div className="chat">
-            <h2>{chat.guest.name}</h2> < br />
+            <h2>{chat.title}</h2> < br />
             <img src={chat.img} alt="" width="100" /> <br /> < br />
             <p>{chat.message}</p>
             <Link to={"chats/" + chat.id}>View Chat</Link> <br />

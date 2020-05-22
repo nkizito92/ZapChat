@@ -9,7 +9,7 @@ class ChatShow extends Component {
     state = {
         text: "",
         img: "",
-        name: "",
+        title: "",
         error: "",
         update: ""
     }
@@ -35,24 +35,24 @@ class ChatShow extends Component {
         const newComment = {
             text: this.state.text,
             img: this.state.img,
-            name: this.state.name,
+            title: this.state.title,
             chatId: Number.parseInt(this.props.id)
         }
 
-        let name = document.getElementById("name")
-        if (!this.state.name) {
-            name.className = "errorField"
+        let title = document.getElementById("title")
+        if (!this.state.title) {
+            title.className = "errorField"
             this.setState({
-                error: "Please fill out the name field"
+                error: "Please fill out the title field"
             })
         } else {
-            name.className = ""
+            title.className = ""
             this.props.createComment(newComment)
 
             this.setState({
                 text: "",
                 img: "",
-                name: "",
+                title: "",
                 error: ""
             })
         }
@@ -83,7 +83,7 @@ class ChatShow extends Component {
         if (chat) {
             return (
                 <div className="chatShow">
-                    <h1>{chat.guest.name}</h1>
+                    <h1>{chat.user.username}</h1>
                     <div id="updated">{this.state.update}</div><br />
                     <img src={chat.img} alt="" width="300" />
                     <p>{chat.message}</p> <br />
@@ -94,7 +94,7 @@ class ChatShow extends Component {
                     <form className="commentForm" onSubmit={e => this.handleOnSubmit(e)}>
                         <h3>Create Comment</h3>
                         <div className="error">{this.state.error}</div>
-                        <input id="name" type="text" name="name" placeholder="Your Name" onChange={e => this.handleChange(e)} value={this.state.name} />  <br />
+                        {/* <input id="name" type="text" name="name" placeholder="Your Name" onChange={e => this.handleChange(e)} value={this.state.name} />  <br /> */}
                         <textarea type="text" name="text" placeholder="Your Text" onChange={e => this.handleChange(e)} value={this.state.text} /> <br />
                         <input type="text" name="img" placeholder="Image URL" onChange={e => this.handleChange(e)} value={this.state.img} /> <br />
                         <input className="btn" type="submit" value="Post Comment" />

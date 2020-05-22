@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { addUser } from '../../action/userActions'
+import { fetchlogin } from '../../action/userActions'
 import { connect } from 'react-redux'
 
 class Login extends Component {
@@ -21,7 +21,7 @@ class Login extends Component {
             password: this.state.password,
             failed: this.state.failed
         }
-        this.props.addUser(currentUser)
+        this.props.fetchlogin(currentUser)
         this.setState({
             username: "",
             password: ""
@@ -29,8 +29,10 @@ class Login extends Component {
     }
 
     render() {
+        console.log(this.props)
         return (
             <div className="main">
+                <div>{this.props.users}</div>
                 <form onSubmit={e => this.handleSubmit(e)} className="form">
                     <h1>Login:</h1> <br />
                     <div id="updated">{this.state.update}</div><br />
@@ -45,4 +47,4 @@ class Login extends Component {
 }
 
 
-export default connect(null, { addUser })(Login)
+export default connect(null, { fetchlogin })(Login)

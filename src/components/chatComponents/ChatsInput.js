@@ -28,7 +28,7 @@ class ChatsInput extends Component {
         if (!this.state.title) {
             title.className = "errorField"
             this.setState({
-                error: "Please fill out the name field"
+                error: "Please fill out the Title field"
             })
         } else {
             title.className = ""
