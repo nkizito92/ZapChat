@@ -23,7 +23,7 @@ const chatsReducer = (state = { chats: [], loading: false }, action) => {
         case "EDIT_CHAT":
             const chats = state.chats.map(chat => {
                 if (chat.id === action.chat.id) {
-                    chat.title.name = action.chat.title.name
+                    chat.guest.name = action.chat.guest.name
                 }
                 return chat
             })

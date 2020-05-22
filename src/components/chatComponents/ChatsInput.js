@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { createChat } from '../../action/chatActions';
 class ChatsInput extends Component {
     state = {
-        title: "",
+        name: "",
         message: "",
         img: "",
         error: "",
@@ -19,25 +19,25 @@ class ChatsInput extends Component {
     handleSubmit = e => {
         e.preventDefault()
         let chatSet = {
-            title: this.state.title,
+            name: this.state.name,
             message: this.state.message,
             img: this.state.img
         }
 
-        let title = document.getElementById("title")
-        if (!this.state.title) {
-            title.className = "errorField"
+        let name = document.getElementById("name")
+        if (!this.state.name) {
+            name.className = "errorField"
             this.setState({
-                error: "Please fill out the Title field"
+                error: "Please fill out the name field"
             })
         } else {
-            title.className = ""
+            name.className = ""
             let completed = document.getElementById("updated")
             completed.className = "complete"
 
             this.props.createChat(chatSet)
             this.setState({
-                title: '',
+                name: '',
                 message: "",
                 img: "",
                 error: "",
@@ -56,7 +56,7 @@ class ChatsInput extends Component {
                     <h1>New Chat:</h1> <br />
                     <div id="updated">{this.state.update}</div><br />
                     <div className="error">{this.state.error}</div>
-                    <input id="title" name="title" onChange={e => this.handleChat(e)} placeholder="Title" value={this.state.title} /> <br />
+                    <input id="name" name="name" onChange={e => this.handleChat(e)} placeholder="Guest Name" value={this.state.name} /> <br />
                     <input name="img" onChange={e => this.handleChat(e)} placeholder="Image URL" value={this.state.img} /> <br />
                     <textarea id="message" name="message" placeholder="Your Chat" onChange={e => this.handleChat(e)} value={this.state.message} /> <br />
                     <button className="btn" onClick={this.handleSubmit}>Post Chat</button>
@@ -66,4 +66,4 @@ class ChatsInput extends Component {
     }
 }
 
-export default connect(null, { createChat })(ChatsInput)
+export default connect(null,{ createChat })(ChatsInput)
