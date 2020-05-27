@@ -24,6 +24,7 @@ const chatsReducer = (state = { chats: [], loading: false }, action) => {
             const chats = state.chats.map(chat => {
                 if (chat.id === action.chat.id) {
                     chat.guest.name = action.chat.guest.name
+                    chat.like = action.chat.like
                 }
                 return chat
             })

@@ -22,12 +22,15 @@ const commentsReducer = (state = { comments: [], loading: false }, action) => {
                 if(comment.id === action.comment.id){
                     comment.text = action.comment.text
                     comment.img = action.comment.img
+                    if (action.like !== null)
+                      comment.like = action.like
                 }
                 return comment
             })
             return {
                 ...state,
                 comment
+        
             }
         case "DELETE_COMMENT":
             const commId = state.comments.findIndex(comment => comment.id === Number(parseInt(action.comment.id)))
