@@ -10,6 +10,9 @@ class ChatShow extends Component {
         text: "",
         img: "",
         name: "",
+        like: 0,
+        laugh: 0,
+        angry: 0,
         error: "",
         update: ""
     }
@@ -36,6 +39,9 @@ class ChatShow extends Component {
             text: this.state.text,
             img: this.state.img,
             name: this.state.name,
+            like: 0,
+            laugh: 0,
+            angry: 0,
             chatId: Number.parseInt(this.props.id)
         }
 
@@ -91,6 +97,7 @@ class ChatShow extends Component {
                     <h2>Comment Section</h2>
                     {this.commentPost(chatComment)}
                     {this.displayPost}
+                    {/* comments post */}
                     <form className="commentForm" onSubmit={e => this.handleOnSubmit(e)}>
                         <h3>Create Comment</h3>
                         <div className="error">{this.state.error}</div>

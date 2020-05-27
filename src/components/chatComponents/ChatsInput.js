@@ -6,6 +6,9 @@ class ChatsInput extends Component {
         name: "",
         message: "",
         img: "",
+        like: 0,
+        laugh: 0,
+        angry: 0,
         error: "",
         update: ""
     }
@@ -21,7 +24,10 @@ class ChatsInput extends Component {
         let chatSet = {
             name: this.state.name,
             message: this.state.message,
-            img: this.state.img
+            img: this.state.img,
+            like: this.state.like,
+            laugh: this.state.laugh,
+            angry: this.state.angry
         }
 
         let name = document.getElementById("name")
@@ -66,4 +72,4 @@ class ChatsInput extends Component {
     }
 }
 
-export default connect(null,{ createChat })(ChatsInput)
+export default connect(null, { createChat })(ChatsInput)

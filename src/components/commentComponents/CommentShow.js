@@ -27,7 +27,7 @@ class CommentShow extends Component {
 
         let completed = document.getElementById("updated")
         completed.className = "complete"
-        this.props.updateComment(changeComment)
+        this.props.updateComment(null ,changeComment)
         this.setState({
             text: "",
             img: "",
