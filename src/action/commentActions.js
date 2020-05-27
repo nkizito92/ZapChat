@@ -6,9 +6,9 @@ export const fetchComments = () => {
         }).then(comment => {
             dispatch({ type: 'ADD_COMMENTS', comments: comment })
         })
-        .catch(error => {
-            console.log(error)
-        })
+            .catch(error => {
+                console.log(error)
+            })
     }
 }
 
@@ -39,27 +39,29 @@ export const createComment = comment => {
 }
 
 
-export const editComment = comment => {
+export const editComment = (like, comment) => {
     return {
         type: "EDIT_COMMENT",
-        comment: comment
+        comment: comment,
+        like: like
     }
 }
 
 
-export const updateComment = comment => {
+export const updateComment = (like, comment) => {
     return dispatch => {
         fetch(`http://localhost:3000/comments/${comment.id}`, {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ comment: comment })
+            body: JSON.stringify({ comment: comment,
+            like: like })
         }
 
         )
             .then(res => res.json())
-            .then(comment => dispatch(editComment(comment)))
+            .then(comment => dispatch(editComment(like,comment)))
             .catch(error => {
                 console.log(error)
             })
@@ -69,7 +71,7 @@ export const updateComment = comment => {
 export const removeComment = id => {
     return {
         type: "DELETE_COMMENT",
-        comment: id 
+        comment: id
     }
 }
 
@@ -77,9 +79,9 @@ export const deleteComment = commentId => {
     return (dispatch) => {
         fetch(`http://localhost:3000/comments/${commentId}`, {
             method: 'DELETE'
-         })
-         .then(res => res.json())
-         .then(commentId => dispatch(removeComment(commentId)) )
+        })
+            .then(res => res.json())
+            .then(commentId => dispatch(removeComment(commentId)))
     }
 }
 
