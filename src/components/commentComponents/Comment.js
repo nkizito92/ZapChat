@@ -16,7 +16,7 @@ const Comment = ({ comment, updateComment }) => {
                 else ((updateComment(comment.like - 1, comment)))
             }
 
-            }>Like up</button>
+            }>Like</button>
                 </div>
                 
             )
