@@ -54,16 +54,16 @@ export const editChat = chat => {
     })
 }
 
-export const updateChat = (chat, chatId) => {
+export const updateChat = (like, laugh, angry, chatId) => {
     return dispatch => {
         fetch(`http://localhost:3000/chats/${chatId}`, {
             method: "PATCH",
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ chat: chat })
+            body: JSON.stringify({ like: like, angry: angry, laugh: laugh })
         }
-        
+
         )
             .then(res => res.json())
             .then(chatData => dispatch(editChat(chatData)))

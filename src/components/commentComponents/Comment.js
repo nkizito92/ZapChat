@@ -2,7 +2,6 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { updateComment } from "../../action/commentActions"
 const Comment = ({ comment, updateComment }) => {
-    console.log(comment)
     const displayComments = () => {
         if (!!comment) {
             return (

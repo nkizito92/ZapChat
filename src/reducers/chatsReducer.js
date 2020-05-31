@@ -25,6 +25,8 @@ const chatsReducer = (state = { chats: [], loading: false }, action) => {
                 if (chat.id === action.chat.id) {
                     chat.guest.name = action.chat.guest.name
                     chat.like = action.chat.like
+                    chat.laugh = action.chat.laugh
+                    chat.angry = action.chat.angry
                 }
                 return chat
             })
