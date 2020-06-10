@@ -19,21 +19,9 @@ const commentsReducer = (state = { comments: [], loading: false }, action) => {
             }
         case "EDIT_COMMENT":
             const commentId = state.comments.findIndex(comment => comment.id === action.comment.id)
-            // const comment = state.comments.map(comment => {
-            //     if(comment.id === action.comment.id){
-            //         comment.text = action.comment.text
-            //         // comment.img = action.comment.img
-            //         // if (action.comment.like !== null)
-            //             comment.like = action.comment.like
-            //     }
-            //     return comment
-            // })
             return {
-                // ...state,
-                // comment
                 ...state,
                 comments: [...state.comments.slice(0, commentId), action.comment, ...state.comments.slice(commentId + 1)]
-        
             }
         case "DELETE_COMMENT":
             const commId = state.comments.findIndex(comment => comment.id === Number(parseInt(action.comment.id)))
