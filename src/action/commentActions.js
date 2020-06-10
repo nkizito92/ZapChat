@@ -39,29 +39,32 @@ export const createComment = comment => {
 }
 
 
-export const editComment = (like, comment) => {
+export const editComment = (comment) => {
     return {
         type: "EDIT_COMMENT",
-        comment: comment,
-        like: like
+        comment: comment
     }
 }
 
 
-export const updateComment = (like, comment) => {
+export const updateComment = (like, laugh, angry, comment) => {
     return dispatch => {
         fetch(`http://localhost:3000/comments/${comment.id}`, {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ comment: comment,
-            like: like })
+            body: JSON.stringify({
+                comment: comment,
+                like: like,
+                laugh: laugh,
+                angry: angry
+            })
         }
 
         )
             .then(res => res.json())
-            .then(comment => dispatch(editComment(like,comment)))
+            .then(comment => dispatch(editComment(comment)))
             .catch(error => {
                 console.log(error)
             })
