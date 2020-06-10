@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 class ChatShow extends Component {
 
     state = {
+        chat_id:"" ,
         text: "",
         img: "",
         name: "",
@@ -42,7 +43,8 @@ class ChatShow extends Component {
             like: 0,
             laugh: 0,
             angry: 0,
-            chatId: Number.parseInt(this.props.id)
+            chatId: Number.parseInt(this.props.id),
+            chat_id: Number.parseInt(this.props.id)
         }
 
         let name = document.getElementById("name")
