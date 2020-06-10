@@ -19,6 +19,7 @@ class CommentShow extends Component {
     }
     handleOnSubmit = e => {
         e.preventDefault()
+        let showedComm = this.props.comments.find(comment => comment.id === Number(parseInt(this.props.id)))
         let changeComment = {
             text: this.state.text,
             img: this.state.img,
@@ -27,7 +28,7 @@ class CommentShow extends Component {
 
         let completed = document.getElementById("updated")
         completed.className = "complete"
-        this.props.updateComment(null ,changeComment)
+        this.props.updateComment(showedComm.like, showedComm.laugh, showedComm.angry, changeComment)
         this.setState({
             text: "",
             img: "",
@@ -74,7 +75,7 @@ class CommentShow extends Component {
             (onComm = this.props.comments.find(comment => comment.id === Number(parseInt(this.props.id))))
         return (
             <div className="main">
-              <br /> <div className="chatShow">  <div id="updated">{this.state.update}</div> </div>
+                <br /> <div className="chatShow">  <div id="updated">{this.state.update}</div> </div>
                 {this.displayFilledForm(onComm)}
             </div>
         )
