@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 class ChatShow extends Component {
 
     state = {
-        chat_id:"" ,
+        chat_id:"",
         text: "",
         img: "",
         name: "",

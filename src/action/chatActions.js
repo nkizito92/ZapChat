@@ -7,7 +7,7 @@ export const addChat = (chat) => {
 export const fetchChats = () => {
     return (dispatch) => {
         dispatch({ type: 'LOADING_CHATS' })
-        fetch('http://localhost:3000/chats').then(res => {
+        fetch('https://backend-zapchat.herokuapp.com/chats').then(res => {
             return res.json()
         }).then(guessChat => {
             dispatch({ type: 'ADD_CHATS', chats: guessChat })
@@ -28,7 +28,7 @@ export const addGuest = guest => {
 export const createChat = (chat) => {
     return (dispatch) => {
 
-        fetch('http://localhost:3000/chats', {
+        fetch('https://backend-zapchat.herokuapp.com/chats', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -56,7 +56,7 @@ export const editChat = chat => {
 
 export const updateChat = (like, laugh, angry, chatId) => {
     return dispatch => {
-        fetch(`http://localhost:3000/chats/${chatId}`, {
+        fetch(`https://backend-zapchat.herokuapp.com/chats/${chatId}`, {
             method: "PATCH",
             headers: {
                 'Content-Type': 'application/json'
@@ -83,7 +83,7 @@ export const removeChat = (id) => {
 
 export const deleteChat = (chatId) => {
     return (dispatch) => {
-        fetch(`http://localhost:3000/chats/${chatId}`, {
+        fetch(`https://backend-zapchat.herokuapp.com/chats/${chatId}`, {
             method: "DELETE"
         })
             .then(res => res.json())

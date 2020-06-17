@@ -1,7 +1,7 @@
 export const fetchComments = () => {
     return (dispatch) => {
         dispatch({ type: 'LOADING_COMMENTS' })
-        fetch('http://localhost:3000/comments').then(res => {
+        fetch('https://backend-zapchat.herokuapp.com/comments').then(res => {
             return res.json()
         }).then(comment => {
             dispatch({ type: 'ADD_COMMENTS', comments: comment })
@@ -21,7 +21,7 @@ export const addComment = comment => {
 
 export const createComment = comment => {
     return dispatch => {
-        fetch('http://localhost:3000/comments', {
+        fetch('https://backend-zapchat.herokuapp.com/comments', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -49,7 +49,7 @@ export const editComment = (comment) => {
 
 export const updateComment = (like, laugh, angry, comment) => {
     return dispatch => {
-        fetch(`http://localhost:3000/comments/${comment.id}`, {
+        fetch(`https://backend-zapchat.herokuapp.com/comments/${comment.id}`, {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json'
@@ -80,7 +80,7 @@ export const removeComment = id => {
 
 export const deleteComment = commentId => {
     return (dispatch) => {
-        fetch(`http://localhost:3000/comments/${commentId}`, {
+        fetch(`https://backend-zapchat.herokuapp.com/comments/${commentId}`, {
             method: 'DELETE'
         })
             .then(res => res.json())
