@@ -1,7 +1,8 @@
+import { onlineUrl } from "./urlLink"
 export const fetchGuests = () => {
     return (dispatch) => {
         dispatch({ type: "LOADING_GUESTS" })
-        fetch("https://backend-zapchat.herokuapp.com/guests")
+        fetch(`${onlineUrl}/guests`)
             .then(res => res.json())
             .then(data => {
                 dispatch({ type: 'ADD_GUESTS', guests: data })
@@ -19,7 +20,7 @@ export const addGuest = guest => {
 
 export const createGuest = guest => {
     return (dispatch) => {
-        fetch('https://backend-zapchat.herokuapp.com/guests', {
+        fetch(`${onlineUrl}/guests`, {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'
@@ -44,7 +45,7 @@ export const editGuest = guest => {
 
 export const updateGuest = (guest) => {
     return (dispatch) => {
-        fetch(`https://backend-zapchat.herokuapp.com/guests/${guest.id}`, {
+        fetch(`${onlineUrl}/guests/${guest.id}`, {
             method: "PATCH",
             headers: {
                 'Content-Type': 'application/json'

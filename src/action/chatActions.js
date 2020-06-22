@@ -1,3 +1,4 @@
+import { onlineUrl } from "./urlLink"
 export const addChat = (chat) => {
     return {
         type: 'ADD_CHAT',
@@ -7,7 +8,7 @@ export const addChat = (chat) => {
 export const fetchChats = () => {
     return (dispatch) => {
         dispatch({ type: 'LOADING_CHATS' })
-        fetch('https://backend-zapchat.herokuapp.com/chats').then(res => {
+        fetch(`${onlineUrl()}/chats`).then(res => {
             return res.json()
         }).then(guessChat => {
             dispatch({ type: 'ADD_CHATS', chats: guessChat })
@@ -28,7 +29,7 @@ export const addGuest = guest => {
 export const createChat = (chat) => {
     return (dispatch) => {
 
-        fetch('https://backend-zapchat.herokuapp.com/chats', {
+        fetch(`${onlineUrl()}/chats`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -56,12 +57,31 @@ export const editChat = chat => {
 
 export const updateChat = (like, laugh, angry, chatId) => {
     return dispatch => {
-        fetch(`https://backend-zapchat.herokuapp.com/chats/${chatId}`, {
+        fetch(`${onlineUrl()}/chats/${chatId}`, {
             method: "PATCH",
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({ like: like, angry: angry, laugh: laugh })
+        }
+
+        )
+            .then(res => res.json())
+            .then(chatData => dispatch(editChat(chatData)))
+            .catch(error => {
+                console.log(error)
+            })
+    }
+}
+
+export const updateName = (chatId, name) => {
+    return dispatch => {
+        fetch(`${onlineUrl()}/chats/${chatId}`, {
+            method: "PATCH",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ name, chatId })
         }
 
         )
@@ -83,7 +103,7 @@ export const removeChat = (id) => {
 
 export const deleteChat = (chatId) => {
     return (dispatch) => {
-        fetch(`https://backend-zapchat.herokuapp.com/chats/${chatId}`, {
+        fetch(`${onlineUrl()}/chats/${chatId}`, {
             method: "DELETE"
         })
             .then(res => res.json())

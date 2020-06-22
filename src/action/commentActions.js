@@ -1,7 +1,8 @@
+import { onlineUrl } from "./urlLink"
 export const fetchComments = () => {
     return (dispatch) => {
         dispatch({ type: 'LOADING_COMMENTS' })
-        fetch('https://backend-zapchat.herokuapp.com/comments').then(res => {
+        fetch(`${onlineUrl}/comments`).then(res => {
             return res.json()
         }).then(comment => {
             dispatch({ type: 'ADD_COMMENTS', comments: comment })
@@ -21,7 +22,7 @@ export const addComment = comment => {
 
 export const createComment = comment => {
     return dispatch => {
-        fetch('https://backend-zapchat.herokuapp.com/comments', {
+        fetch(`${onlineUrl}/comments`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -49,7 +50,7 @@ export const editComment = (comment) => {
 
 export const updateComment = (like, laugh, angry, comment) => {
     return dispatch => {
-        fetch(`https://backend-zapchat.herokuapp.com/comments/${comment.id}`, {
+        fetch(`${onlineUrl}/comments/${comment.id}`, {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json'
@@ -80,7 +81,7 @@ export const removeComment = id => {
 
 export const deleteComment = commentId => {
     return (dispatch) => {
-        fetch(`https://backend-zapchat.herokuapp.com/comments/${commentId}`, {
+        fetch(`${onlineUrl}/comments/${commentId}`, {
             method: 'DELETE'
         })
             .then(res => res.json())

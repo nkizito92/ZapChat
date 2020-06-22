@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { updateChat } from '../../action/chatActions'
+import { updateName } from '../../action/chatActions'
 
 class Guest extends Component {
     state = {
@@ -26,7 +26,7 @@ class Guest extends Component {
                 error: "Please fill out the name field"
             })
         } else {
-            this.props.updateChat(editing)
+            this.props.updateName(editing)
             this.setState({
                 name: "",
                 error: ""
@@ -49,4 +49,4 @@ class Guest extends Component {
 }
 
 
-export default connect(null, { updateChat })(Guest)
+export default connect(null, { updateName })(Guest)
