@@ -1,96 +1,130 @@
 * {
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
 }
 #nav {
-    background-color: purple;
-    padding: 15px 0 ;
-    text-align: center;
+  background-color: purple;
+  padding: 15px 0;
+  text-align: center;
 }
 
 #nav a:hover {
-    background-color: red;
+  background-color: red;
 }
 #nav a:active {
-    background-color: navy;
+  background-color: navy;
 }
 body {
-   background-color: #dbdbdb;
+  background-color: #dbdbdb;
 }
+
+#reaction {
+  position: relative;
+  margin: 0 auto;
+  text-align: center;
+  width: 300px;
+  padding: 10px 0;
+}
+
+#reaction div {
+  background-color: none;
+  background-color: #00b7ff00;
+  display: inline;
+}
+
+#reaction div span {
+    color: blue;
+}
+
+#reaction div:hover {
+    cursor: pointer;
+}
+#reaction div:active {
+
+    border-radius: 50px;
+    background-color: #00b7ff;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    -ms-border-radius: 50px;
+    -o-border-radius: 50px;
+}
+
 footer {
-    background-color: black;
-    color: white;
-    width: 100%;
-    padding: 25px 0;
-    text-align: center;
-    position: absolute;
-    margin: 0 auto;
+  background-color: black;
+  color: white;
+  width: 100%;
+  padding: 25px 0;
+  text-align: center;
+  position: absolute;
+  margin: 0 auto;
 }
 .main {
-    background-color: #ffff;
-    max-width: 780px;
-    min-height: 535px;
-    margin: 0 auto;
-    padding: 0 20px;
+  background-color: #ffff;
+  max-width: 780px;
+  min-height: 535px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
 .chat {
-    text-align: center;
-    margin-bottom: 10px;
+  text-align: center;
+  margin-bottom: 10px;
 }
 
 .chatShow {
-    text-align: center;
+  text-align: center;
 }
-.chatShow h2, 
+.chatShow h2,
 .chatShow h3 {
-    margin: 15px 0;
+  margin: 15px 0;
 }
 .chatShow h1 {
   padding: 10px 0;
 }
 .complete {
-    background-color: #e4ffca;
-    color: green;
-    padding: 10px 0;
-    animation: fading 2s linear ;
-    opacity: 0;
+  background-color: #e4ffca;
+  color: green;
+  padding: 10px 0;
+  animation: fading 2s linear;
+  opacity: 0;
 }
 
 @keyframes fading {
-    0%{opacity: 1;}
-    80%{opacity: 1;}
-    100%{opacity: 0;}
+  0% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 .error {
-    color: red;
-    padding: 10px 0;
+  color: red;
+  padding: 10px 0;
 }
 
-#likes {
-    color: red;
-}
 .errorField {
-    border: 2px solid red;
+  border: 2px solid red;
 }
 .form {
-    text-align: center;
+  text-align: center;
 }
 .form input,
-.form textarea{
-    width: 80%;
-    border-radius: 5px;
-    padding: 0 5px;
-    margin-bottom: 7px;
-    outline: none;
+.form textarea {
+  width: 80%;
+  border-radius: 5px;
+  padding: 0 5px;
+  margin-bottom: 7px;
+  outline: none;
 }
-
 
 .form textarea {
-    height: 200px;
+  height: 200px;
 }
 .form h1 {
-    text-align: center;
+  text-align: center;
 }
 
 .commentForm {
@@ -100,75 +134,75 @@ footer {
 
 .commentForm input,
 .commentForm textarea {
-    width: 40%;
-    border-radius: 5px;
-    padding: 0 5px;
-    margin-bottom: 7px;
-    outline: none;
+  width: 40%;
+  border-radius: 5px;
+  padding: 0 5px;
+  margin-bottom: 7px;
+  outline: none;
 }
 
 .commentForm textarea {
-    height:100px ;
+  height: 100px;
 }
 
-.comments p{
-    text-align: center;
-    margin: 10px 0;
+.comments p {
+  text-align: center;
+  margin: 10px 0;
 }
 
 .guestForm {
-text-align: center;
+  text-align: center;
 }
-.guestForm input{
-width: 40%;
-border-radius: 5px;
-padding: 0 5px;
-margin-bottom: 7px;
-outline: none;
+.guestForm input {
+  width: 40%;
+  border-radius: 5px;
+  padding: 0 5px;
+  margin-bottom: 7px;
+  outline: none;
 }
-.btn{
-    color: white;
-    background-color: purple;
-    padding: 8px 17px;
-    width: 40%;
-    border-radius: 7px;
-    border: 2px solid purple;
-    outline: none;
+.btn {
+  color: white;
+  background-color: purple;
+  padding: 8px 17px;
+  width: 40%;
+  border-radius: 7px;
+  border: 2px solid purple;
+  outline: none;
 }
 
 .btn:hover {
-    cursor: pointer;
-    color: purple;
-    border: 2px solid purple;
-    background-color: white;
+  cursor: pointer;
+  color: purple;
+  border: 2px solid purple;
+  background-color: white;
 }
 
 .btn:active {
-    background-color: navy;
-    border: 2px solid navy;
-    color: white;
+  background-color: navy;
+  border: 2px solid navy;
+  color: white;
 }
 
-.deletebtn{
-    color: white;
-    background-color: red;
-    padding: 8px 17px;
-    width: 40%;
-    border-radius: 7px;
-    border: 2px solid red;
-    outline: none;
-    margin-left: 10px;
+.deletebtn {
+  color: white;
+  background-color: red;
+  padding: 8px 17px;
+  width: 40%;
+  border-radius: 7px;
+  border: 2px solid red;
+  outline: none;
+  margin-left: 10px;
 }
 
 .deletebtn:hover {
-    cursor: pointer;
-    color: red;
-    border: 2px solid red;
-    background-color: white;
+  cursor: pointer;
+  color: red;
+  border: 2px solid red;
+  background-color: white;
 }
 
 .deletebtn:active {
-    background-color: navy;
-    border: 2px solid navy;
-    color: white;
+  background-color: navy;
+  border: 2px solid navy;
+  color: white;
 }
