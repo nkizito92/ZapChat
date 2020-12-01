@@ -1,8 +1,9 @@
 # ZapChat
 
+## Visit the App
+[ZapChat](https://zap-chat.herokuapp.com/)
 
-
-Welcome to ZapChat in here this is where your will be manipulating and view the data from the back and.  
+Welcome to ZapChat in here this is where your will be manipulating and view the data from the Frontend.  
 
 ## installation   
  `fork` this repository and copy from clone or download it.
@@ -10,7 +11,7 @@ Welcome to ZapChat in here this is where your will be manipulating and view the 
 
 ## BackEnd Source
 Don't forget to `fork` and clone the [Back-End](https://github.com/nkizito92/Back_End-ZapChat). as well  
-When working with a React app you may want to split the backEnd and FrontEnd appart because the files are too big and slow down the FrontEnd. 
+When working with a React app you may want to split the backEnd and FrontEnd apart because the files are too big and it will slow down the FrontEnd. 
 ## IMPORTANT NOTE 
 ### Make sure BOTH the Front-End and Back-End are in separate folders.
 
